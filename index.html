@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavitra Classes | MCQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href="https://yashkumat.github.io/practice_question/option.png" type="image/png" sizes="16x16" />
+    <meta name="keywords"
+        content="MCQ generator, Exam practice, Learning assessments, Mock questions, CBSE, SSC, ICSE, 10th, 9th, 8th Practice Question" />
+    <meta name="author" content="Yash Kumat" />
+    <meta property="og:title" content="MCQ App" />
+    <meta property="og:type" content="Educational Application" />
+    <meta property="og:image" content="https://yashkumat.github.io/practice_question/option.png" />
+    <meta property="og:url" content="https://yashkumat.github.io/mcq_app/" />
+    <meta name="description" content="Empower your learning journey with our MCQ generator App." />
+    <style>
+        body {
+            background: radial-gradient(circle at top right, #6dd5ed, #2193b0);
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-check-input:checked {
+            background-color: #ffeb3b;
+            border-color: #ffeb3b;
+            box-shadow: 0 0 5px #ffeb3b;
+        }
+
+        .form-check-label {
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .form-check:hover .form-check-label {
+            color: #ffeb3b;
+            transition: color 0.3s;
+        }
+
+        #getQuestion {
+            background: #ff5722;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #getQuestion:hover {
+            background: #ff7043;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #message {
+            font-weight: bold;
+        }
+
+        #message h5.text-success {
+            color: #4caf50 !important;
+        }
+
+        #message h5.text-danger {
+            color: #f44336 !important;
+        }
+
+        .fixed-bottom .card {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        #your_score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        .your_score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        .action {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header text-center my-3">
+            <h1>Pavitra classes</h1>
+            <p>Atoms & Molecules</p>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="question" id="question-div">
+                    <p id="question">Demo Question</p>
+                </div>
+                <div class="options" id="option-div">
+                    <div class="form-check my-2">
+                        <input class="form-check-input select_option" type="radio" onclick="score()" name="selected_opt"
+                            id="opt_1">
+                        <label class="form-check-label" for="opt1" id="opt1">Demo Option 1</label>
+                    </div>
+                    <div class="form-check my-2">
+                        <input class="form-check-input select_option" type="radio" onclick="score()" name="selected_opt"
+                            id="opt_2">
+                        <label class="form-check-label" for="opt2" id="opt2">Demo Option 2</label>
+                    </div>
+                    <div class="form-check my-2">
+                        <input class="form-check-input select_option" type="radio" onclick="score()" name="selected_opt"
+                            id="opt_3">
+                        <label class="form-check-label" for="opt3" id="opt3">Demo Option 3</label>
+                    </div>
+                    <div class="form-check my-2">
+                        <input class="form-check-input select_option" type="radio" onclick="score()" name="selected_opt"
+                            id="opt_4">
+                        <label class="form-check-label" for="opt4" id="opt4">Demo Option 4</label>
+                    </div>
+                    <div class="d-none" id="answer"></div>
+                </div>
+                <div class="action mt-3">
+                    <button class="btn btn-primary" onclick="showquestion()" id="getQuestion">Start Test</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-1 fixed-bottom">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p class="your_score"><span class="h5">Score: </span><span id="your_score">0</span></p>
+                        <h5 id="message"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
+
+    <script>
+        let questions;
+        let your_score = 0;
+
+        const url = "https://docs.google.com/spreadsheets/d/1jLpRla_DyYO6bfSe1VHaQdCvfJeIuuF0_GHz6RLJsgY/export?format=csv"
+        fetch(url).then(data => data.text()).then(csvdata => csv().fromString(csvdata).then(jsondata => questions = jsondata))
+
+        document.getElementById('question-div').classList.add('d-none');
+        document.getElementById('option-div').classList.add('d-none');
+
+        function showquestion() {
+
+            document.getElementById('getQuestion').classList.add('d-none')
+
+            document.getElementById('question-div').classList.remove('d-none');
+            document.getElementById('option-div').classList.remove('d-none');
+
+            var item = questions[Math.floor(Math.random() * questions.length)];
+            var ele = document.getElementsByClassName("select_option");
+            for (var i = 0; i < ele.length; i++) {
+                ele[i].checked = false;
+            }
+            document.getElementById('getQuestion').innerText = "Next"
+            document.getElementById('question').innerHTML = `<span class="h5">Question - </span> ${item.question}`
+            document.getElementById('opt1').innerHTML = `${item.opt1}`
+            document.getElementById('opt2').innerHTML = `${item.opt2}`
+            document.getElementById('opt3').innerHTML = `${item.opt3}`
+            document.getElementById('opt4').innerHTML = `${item.opt4}`
+            document.getElementById('opt_1').value = item.opt1
+            document.getElementById('opt_2').value = item.opt2
+            document.getElementById('opt_3').value = item.opt3
+            document.getElementById('opt_4').value = item.opt4
+            document.getElementById('answer').innerHTML = item.answer
+
+        }
+
+
+        function score() {
+            let selected_ans = document.querySelector('input[name="selected_opt"]:checked').value
+            let correct_ans = document.getElementById('answer').innerHTML
+            if (selected_ans == correct_ans) {
+                your_score++;
+                showMessage(1)
+            } else {
+                showMessage(0)
+            }
+            document.getElementById('your_score').innerText = your_score
+
+        }
+
+        function showMessage(msg) {
+            if (msg) {
+                document.getElementById('message').innerHTML = "<h5 class='text-success'>Correct Answer</h5>"
+                setTimeout(() => {
+                    showquestion()
+                }, 1000)
+            }
+            else {
+                document.getElementById('message').innerHTML = "<h5 class='text-danger'>Try again!</h5>"
+            }
+
+            setTimeout(() => {
+                document.getElementById('message').innerText = ""
+            }, 1000)
+
+        }
+
+    </script>
+</body>
+
+</html>
