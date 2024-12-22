@@ -133,7 +133,6 @@
     <div class="container">
         <div class="header text-center my-3">
             <h1>Pavitra classes</h1>
-            <p>Atoms & Molecules</p>
         </div>
 
         <div class="card">
@@ -174,7 +173,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body text-center">
-                        <p class="your_score"><span class="h5">Score: </span><span id="your_score">0</span></p>
+                        <p class="your_score"><span class="h5 mx-2">Score: </span><span id="your_score">0</span> <span class="h5 mx-2">Attempts: </span><span id="your_attempts">0</span></p>
                         <h5 id="message"></h5>
                     </div>
                 </div>
@@ -194,6 +193,7 @@
     <script>
         let questions;
         let your_score = 0;
+        let your_attempts = 0;
 
         const url = "https://docs.google.com/spreadsheets/d/1jLpRla_DyYO6bfSe1VHaQdCvfJeIuuF0_GHz6RLJsgY/export?format=csv"
         fetch(url).then(data => data.text()).then(csvdata => csv().fromString(csvdata).then(jsondata => questions = jsondata))
@@ -237,7 +237,9 @@
             } else {
                 showMessage(0)
             }
+            your_attempts++
             document.getElementById('your_score').innerText = your_score
+            document.getElementById('your_attempts').innerText = your_attempts
 
         }
 
