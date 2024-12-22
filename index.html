@@ -133,6 +133,7 @@
     <div class="container">
         <div class="header text-center my-3">
             <h1>Pavitra classes</h1>
+            <p id="test_title"></p>
         </div>
 
         <div class="card">
@@ -194,6 +195,7 @@
         let questions;
         let your_score = 0;
         let your_attempts = 0;
+        let title = "";
 
         const url = "https://docs.google.com/spreadsheets/d/1jLpRla_DyYO6bfSe1VHaQdCvfJeIuuF0_GHz6RLJsgY/export?format=csv"
         fetch(url).then(data => data.text()).then(csvdata => csv().fromString(csvdata).then(jsondata => questions = jsondata))
@@ -202,6 +204,11 @@
         document.getElementById('option-div').classList.add('d-none');
 
         function showquestion() {
+
+            if (!title) {
+                title = questions.shift().question;
+                document.getElementById('test_title').innerText = title
+            }
 
             document.getElementById('getQuestion').classList.add('d-none')
 
